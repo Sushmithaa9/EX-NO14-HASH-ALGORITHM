@@ -28,8 +28,30 @@ To implement HASH ALGORITHM
 
 ## Program:
 
-
+#include <stdio.h>
+#include <string.h>
+unsigned long hashFunction(char str[])
+{
+    unsigned long hash = 5381;
+    int i;
+    for (i = 0; str[i] != '\0'; i++)
+        hash = ((hash << 5) + hash) + str[i];
+    return hash;
+}
+int main()
+{
+}
+    char message[200];
+    unsigned long hash;
+    printf("Enter the message: ");
+    fgets(message, sizeof(message), stdin);
+    message[strcspn(message, "\n")] = '\0';
+    hash = hashFunction(message);
+    printf("\nHash Value: %lu\n", hash);
+    return 0;
 ## Output:
+<img width="902" height="373" alt="image" src="https://github.com/user-attachments/assets/7361c797-6e0b-4a5c-966d-4167e9611dc2" />
+
 
 ## Result:
 The program is executed successfully.
